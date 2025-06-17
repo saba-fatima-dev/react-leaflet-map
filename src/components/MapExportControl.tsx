@@ -4,13 +4,20 @@ import html2canvas from "html2canvas";
 
 const MapExportControl: React.FC = () => {
     const handleExport = () => {
-    const mapContainer = document.querySelector(".leaflet-container") as HTMLElement;
-    if (!mapContainer) return;
+  const mapContainer = document.querySelector(".leaflet-container") as HTMLElement;
+  if (!mapContainer) return;
 
-    const fileName = prompt("Enter a name for your map image:", "leaflet-map");
-    if (!fileName) return;
+  const fileName = prompt("Enter a name for your map image:", "leaflet-map");
+  if (!fileName) return;
 
-    html2canvas(mapContainer, { useCORS: true }).then((canvas) => {
+  // Ensure map is rendered and visible before capture
+  setTimeout(() => {
+    html2canvas(mapContainer, {
+      useCORS: true,
+      allowTaint: true,
+      backgroundColor: null,
+      scale: 2, // increase resolution
+    }).then((canvas) => {
       canvas.toBlob((blob) => {
         if (blob) {
           const url = URL.createObjectURL(blob);
@@ -22,7 +29,9 @@ const MapExportControl: React.FC = () => {
         }
       });
     });
+  }, 500); // 500ms delay for rendering
   };
+
 
   const handlePrint = () => {
     const mapContainer = document.querySelector(".leaflet-container") as HTMLElement;

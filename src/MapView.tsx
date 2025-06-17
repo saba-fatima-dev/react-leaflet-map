@@ -3,6 +3,7 @@ import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import MapScaleControl from "./components/MapScaleControl";
 import MapExportControl from "./components/MapExportControl";
+import ShapefileLoader from "./components/ShapefileLoader";
 
 const MapView: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const MapView: React.FC = () => {
         attribution='&copy; OpenStreetMap contributors'
       />
       <MapScaleControl />
+      < ShapefileLoader />
     </MapContainer>
     <MapExportControl />
     </>
