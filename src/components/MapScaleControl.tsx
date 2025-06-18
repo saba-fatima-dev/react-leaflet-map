@@ -7,7 +7,10 @@ const MapScaleControl: React.FC = () => {
   const map = useMap();
 
   useEffect(() => {
-    const scale = L.control.scale({ imperial: false });
+    const scale = L.control.scale({ 
+      imperial: false,
+      position: "bottomright",
+     });
     scale.addTo(map);
     return () => {
       scale.remove();

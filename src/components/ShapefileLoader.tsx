@@ -52,10 +52,10 @@ const ShapefileLoader: React.FC = () => {
         onChange={handleFileUpload}
         style={{
           position: "absolute",
-          top: "60px",
-          right: "10px",
+          top: "12px",
+          right: "60px",
           zIndex: 1000,
-          backgroundColor: "white",
+          backgroundColor: "rgba(255, 255, 255, 0.5)",
           padding: "5px",
           borderRadius: "4px",
         }}
@@ -64,7 +64,7 @@ const ShapefileLoader: React.FC = () => {
         <GeoJSON
           key={geojsonKey}
           data={geojsonData}
-          style={{ color: "red", weight: 2, fillOpacity: 0.3 }}
+          style={{ color: "#2b7a78", weight: 2, fillOpacity: 0.3 }}
         />
       )}
     </>

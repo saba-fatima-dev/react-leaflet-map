@@ -2,8 +2,9 @@
 import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import MapScaleControl from "./components/MapScaleControl";
-import MapExportControl from "./components/MapExportControl";
+// import MapExportControl from "./components/MapExportControl";
 import ShapefileLoader from "./components/ShapefileLoader";
+import MapPrintControl from "./components/MapPrintControl";
 
 const MapView: React.FC = () => {
   return (
@@ -20,8 +21,10 @@ const MapView: React.FC = () => {
       />
       <MapScaleControl />
       < ShapefileLoader />
+      < MapPrintControl />
     </MapContainer>
-    <MapExportControl />
+    {/* <MapExportControl /> */}
+
     </>
   );
 };
